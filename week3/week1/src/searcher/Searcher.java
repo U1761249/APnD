@@ -10,11 +10,11 @@ package searcher;
  * @version September 2018
  *
  */
-public abstract class Searcher<T> {
-    private T[] array; // the array in which this Searcher object will search
+public abstract class Searcher {
+    private int[] array; // the array in which this Searcher object will search
     private int k; // this Searcher object searches for the kth largest entry in the array
 
-    Searcher(T[] array, int k) {
+    Searcher(int[] array, int k) {
         this.array = array;
         this.k = k;
     }
@@ -22,7 +22,7 @@ public abstract class Searcher<T> {
     /**
      * Get this Searcher's array
      */
-    public T[] getArray() {
+    public int[] getArray() {
         return array;
     }
 
@@ -34,5 +34,5 @@ public abstract class Searcher<T> {
     /**
      * Find the kth largest entry in the array
      */
-    abstract public T findElement() throws IndexingError;
+    abstract public int findElement() throws IndexingError;
 }

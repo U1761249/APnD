@@ -11,12 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version September 2018
  */
 
-abstract class SearcherTest<T> {
+abstract class SearcherTest {
 
     /**
      * Create a searcher of the right type
      */
-    abstract protected Searcher createSearcher(T[] array, int index) throws IndexingError;
+    abstract protected Searcher createSearcher(int[] array, int index) throws IndexingError;
 
     /**
      * Test that the searcher finds the correct value.  The test uses a random listing generator to create
@@ -28,7 +28,7 @@ abstract class SearcherTest<T> {
      */
     private void testSearcher(int arraySize,int index) throws IndexingError {
         ArrayGenerator generator = new CleverRandomListingGenerator(arraySize);
-        Searcher search = createSearcher((T[]) generator.getArray(), index);
+        Searcher search = createSearcher(generator.getArray(), index);
         assertEquals(arraySize - index, search.findElement());
     }
 
@@ -43,7 +43,7 @@ abstract class SearcherTest<T> {
 
     private void testLargerIndex(int arraySize, int index) throws IndexingError {
         ArrayGenerator generator = new CleverRandomListingGenerator(arraySize);
-        Searcher search = createSearcher((T[]) generator.getArray(), index);
+        Searcher search = createSearcher(generator.getArray(), index);
         Throwable e = assertThrows(IndexingError.class, () -> {search.findElement();});
 
         assertEquals("Index out of bounds", e.getMessage());

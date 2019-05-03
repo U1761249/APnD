@@ -6,9 +6,9 @@ package searcher;
 
 import java.util.Arrays;
 
-public class SimpleSearcher<T> extends Searcher {
+public class SimpleSearcher extends Searcher {
 
-    SimpleSearcher(T[] array, int k) {
+    SimpleSearcher(int[] array, int k) {
         super(array, k);
     }
 
@@ -23,8 +23,8 @@ public class SimpleSearcher<T> extends Searcher {
      *
      * @return kth largest element of array
      */
-    public T findElement() throws IndexingError {
-        T[] array = (T[]) getArray();
+    public int findElement() throws IndexingError {
+        int[] array = getArray();
         int k = getIndex();
         if (k <= 0 || k > array.length) {
             throw new IndexingError();

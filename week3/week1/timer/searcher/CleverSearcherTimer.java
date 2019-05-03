@@ -11,12 +11,12 @@ import arrayGenerator.ArrayGenerator;
 import arrayGenerator.CleverRandomListingGenerator;
 import timer.Timer;
 
-public class CleverSearcherTimer<T> extends CleverSearcher implements Timer {
+public class CleverSearcherTimer extends CleverSearcher implements Timer {
 
     // All timings will be done with an index of 5
     private final static int K = 5;
 
-    private CleverSearcherTimer(T[] array) {
+    private CleverSearcherTimer(int[] array) {
         super(array, K);
     }
 

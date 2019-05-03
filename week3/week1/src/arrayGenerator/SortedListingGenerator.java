@@ -7,9 +7,9 @@ package arrayGenerator;
  * @version September 2018
  */
 
-public class SortedListingGenerator<T> implements ListingGenerator {
+public class SortedListingGenerator implements ListingGenerator {
 
-    private T[] array;
+    private int[] array;
 
     /**
      * Create an array of ints of size <tt>size</tt>, and populate it
@@ -20,9 +20,9 @@ public class SortedListingGenerator<T> implements ListingGenerator {
     SortedListingGenerator(int size)
     {
         if (size >= 1){ // Test the size of the array
-            array = (T[])new Object[size]; // create the array
-            for (Integer index = 0; index < array.length; index++) {  // populate it
-                array[index] = (T) index;
+            array = new int[size]; // create the array
+            for (int index = 0; index < array.length; index++) {  // populate it
+                array[index] = index;
             }
         }
         else {
@@ -33,7 +33,7 @@ public class SortedListingGenerator<T> implements ListingGenerator {
     /**
      * @return the array created by this ArrayGenerator
      */
-    public T[] getArray() {
+    public int[] getArray() {
         return array;
     }
 

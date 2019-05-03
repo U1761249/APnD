@@ -5,10 +5,10 @@ package searcher;
  * @version September 2018
  */
 
-class SimpleSearcherTest<T> extends SearcherTest {
+class SimpleSearcherTest extends SearcherTest {
 
-    @Override
-    protected Searcher createSearcher(Object[] array, int index) throws IndexingError {
+    protected Searcher createSearcher(int[] array, int index) throws IndexingError {
         return new SimpleSearcher(array,index);
     }
+
 }

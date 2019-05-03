@@ -8,7 +8,7 @@ package arrayGenerator;
  * @version September 2018
  */
 
-public class CleverRandomListingGenerator<T> extends RandomListingGenerator {
+public class CleverRandomListingGenerator extends RandomListingGenerator {
     /**
      * Constructor
      */
@@ -31,11 +31,11 @@ public class CleverRandomListingGenerator<T> extends RandomListingGenerator {
      * </ul>
      */
     protected void randomise() {
-        T[] array = (T[]) getArray();
+        int[] array = getArray();
         for (int index = 0; index < array.length; index++) { // for each entry in the array
             int randomIndex = getRandomIndex();  // pick a random index
             // swap the two entries
-            T randomEntry = array[randomIndex];  // make a copy of the random entry
+            int randomEntry = array[randomIndex];  // make a copy of the random entry
             array[randomIndex] = array[index];  // copy the current entry to the random index
             array[index] = randomEntry;  // overwrite the current entry with the (remembered) random entry
         }

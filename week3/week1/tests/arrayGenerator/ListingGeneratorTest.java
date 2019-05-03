@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-abstract class ListingGeneratorTest<T extends Comparable<? super T>> extends ArrayGeneratorTest {
+abstract class ListingGeneratorTest extends ArrayGeneratorTest {
 
     @Override
     abstract protected ListingGenerator createArrayGenerator(int size);
@@ -34,12 +34,10 @@ abstract class ListingGeneratorTest<T extends Comparable<? super T>> extends Arr
     private void testContents(ListingGenerator generator) {
         boolean[] inList = new boolean[generator.getSize()];
         Arrays.fill(inList, false);
-
-        for (Integer i = 0; i < generator.getSize(); i++) {
-            T entry = (T) generator.getArray()[i];
-            Integer zero = 0;
-            Integer size = generator.getSize();
-            if (entry.compareTo((T)zero) < 0 || entry.compareTo((T)size) >= 0) {  // is entry in the correct value range?
+        ;
+        for (int i = 0; i < generator.getSize(); i++) {
+            int entry = generator.getArray()[i];
+            if (entry < 0 || entry >= generator.getSize()) {  // is entry in the correct value range?
                 fail("incorrect entry " + entry + " in array");  // if so, the test fails
             }
             if (inList[i]) { // have we encountered this value befotre

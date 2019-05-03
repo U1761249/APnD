@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=HashtableWrapper
+comment0.text=\r\n\ A\ wrapper\ for\ the\ Hashtable\ class\r\n\ \r\n\ @author\ Hugh\ Osborne\ \r\n\ @version\ October\ 2018\r\n
+comment1.params=size
+comment1.target=HashtableWrapper(int)
+comment2.params=key\ value
+comment2.target=java.lang.Object\ put(java.lang.Object,\ java.lang.Object)
+numComments=3

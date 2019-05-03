@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @version September 2018
  */
 
-public class SimpleRandomListingGenerator<T> extends RandomListingGenerator {
+public class SimpleRandomListingGenerator extends RandomListingGenerator {
     /**
      * Constructor
      */
@@ -43,7 +43,7 @@ public class SimpleRandomListingGenerator<T> extends RandomListingGenerator {
      */
     protected void randomise() {
         // create a new int array of the same size as the sorted array
-        T[] copy = (T[]) new Object[getArray().length];
+        int[] copy = new int[getArray().length];
         // create a boolean array of the same size -  used to indicate if elements have been used
         boolean[] used = new boolean[getArray().length];
         // initialise all values in the boolean array to false - no sorted values have been used yet
@@ -54,7 +54,7 @@ public class SimpleRandomListingGenerator<T> extends RandomListingGenerator {
                 randomIndex = getRandomIndex();  // pick a random index in the sorted array
             } while (used[randomIndex]);  // until you find a value that hasn't been used
             // copy the entry, in the sorted array, at this unused random index, to the new array
-            copy[index] = (T) getArray()[randomIndex];
+            copy[index] = getArray()[randomIndex];
             used[randomIndex] = true;  // note that this entry has been used
         }
         // now copy the random array back to the Listing's main array
